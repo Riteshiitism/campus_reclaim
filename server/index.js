@@ -9,10 +9,18 @@ const mongoose =require('mongoose')
 dotenv.config();
 
 
-app.use(cors({
-    origin: ["http://localhost:3000","https://shiny-cranachan-d17576.netlify.app/"],
-    credentials: true
-}));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  // const allowedOrigins = ['http://localhost:3000', 'https://cool-dolphin-debfaf.netlify.app'];
+  // const origin = req.headers.origin;
+  // if (allowedOrigins.includes(origin)) {
+  //      res.setHeader('Access-Control-Allow-Origin', origin);
+  // }
+  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  // res.header("Access-Control-Allow-credentials", true);
+  // res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, UPDATE");
+  next();
+});
 
 
 app.use(express.json())
