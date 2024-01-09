@@ -28,7 +28,7 @@ app.use(express.urlencoded({limit: '50mb'}));
 
 // const url = "mongodb://localhost:27017/lostANDfound";
 console.log(process.env.MDB_CONNECT);
-mongoose.connect("mongodb+srv://LostFound:KltZpBaqvYaqN4PY@cluster0.zhoru3b.mongodb.net/?retryWrites=true&w=majority",{
+mongoose.connect(process.env.MDB_CONNECT,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     // useFindAndModify: false,
